@@ -1,0 +1,31 @@
+
+
+
+body{
+    background-color: #fafafa;
+}
+
+p{
+    font-family: sans-serif;
+}
+
+.navbar-brand{
+    width: 5rem;
+}
+
+.carousel-item{
+    height: 25vh;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    opacity: 0;
+}
+
+#carouselPrincipal:hover .carousel-control-prev-icon, #carouselPrincipal:hover .carousel-control-next-icon{
+    opacity: 1;
+}
+
+.experience{
+    height: 50vh;
+    background-color: #f4e2d1;
+}
