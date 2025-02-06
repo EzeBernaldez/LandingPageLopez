@@ -1,20 +1,65 @@
+:root{
+    --color-body: #E8F1FF; 
+    --color-about-us: #DCEAFF;
+    --color-services: #C4DAFA;
+    --color-oscuro: #334eac;
+    --color-scroll: #A0BDE8;
+}
 
+::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+  }
 
+  ::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll);
+    border-radius: 3px;       /* roundness of the scroll thumb */
+  }
 
 body{
-    background-color: #fafafa;
+    background-color: var(--color-body);
+    font-family: sans-serif;
+    padding-top: 82px;
+}
+
+.bg-body{
+    background-color: var(--color-body) !important;
+}
+
+.bg-services{
+    background-color: var(--color-services);
+}
+
+.bg-about-us{
+    background-color: var(--color-about-us);
+}
+
+.bg-oscuro{
+    color: var(--color-oscuro);
 }
 
 p{
     font-family: sans-serif;
 }
 
-.navbar-brand{
-    width: 5rem;
+h2{
+    font-family: Tahoma, sans-serif
 }
 
-.carousel-item{
-    height: 25vh;
+.navbar-brand{
+    width: 10rem;
+    margin-left: 0.5rem;
+}
+
+.navbar-toggler{
+    box-shadow: none !important; 
+}
+
+.carousel-item-h{
+ max-height: calc(100vh - 84px) ;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon{
@@ -27,5 +72,186 @@ p{
 
 .experience{
     height: 50vh;
-    background-color: #f4e2d1;
+}
+
+
+@keyframes animation__navbar {
+    from{
+        top: -20%;
+    }
+}
+
+.navbar{
+    box-shadow: 0 0 40px #000a;
+    animation-name: animation__navbar;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+
+.navbar__porcentaje{
+    position: absolute;
+    bottom: 0;
+    background-color: #000a;
+    animation-name: animation__porcentaje;
+    animation-timing-function: linear;
+    animation-timeline: scroll();
+    animation-fill-mode: both;
+}
+
+
+@keyframes animation__porcentaje {
+    0%{
+        width: 0;
+        padding: 0;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+
+.nav-link{
+    border: none !important;
+    border-radius: none !important;
+}
+
+.nav-link.active{
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #000 !important;
+}
+
+
+.container__img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.img__negocio{
+    object-fit: cover;
+  width:100%;
+  height:100%;
+}
+
+
+
+
+
+/*<--------------------- SECTION SERVICES --------------------->*/
+
+
+.linea__separadora{
+    background-color: #0007;
+    width: 10rem;
+    height: 0.5rem;
+    position: relative;
+}
+
+.services__info {
+    text-align: center;
+    padding: 60px 20px;
+    animation-name: animation__aparecer;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range-start: cover 20%;
+    animation-range-end: cover 50%;
+}
+
+@keyframes animation__aparecer {
+    from{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.services__info h2 {
+    font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+  
+.services__info p {
+    font-family: Tahoma;
+    font-size: 18px;
+    color: #666;
+}
+
+.services__info div{
+    background-color: #0007;
+    width: 80%;
+    margin: auto;
+    height: 0.5rem;
+}
+
+.service__item{
+    animation-name: animation__aparecer__item;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range-start: cover 10%;
+    animation-range-end: cover 60%;
+}
+
+@keyframes animation__aparecer__item {
+    from {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .service__item.der{
+        text-align: end;
+    }
+    .linea__separadora.der{
+        margin-left: auto;
+    }
+}
+
+
+/*------------------------------------------------card------------------------------------------------------*/
+
+.card-flip{
+    position: relative;
+    margin: auto;
+    max-width: 40vw;
+    height: 300px;
+}
+
+.card-flip div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: 1s ;
+}
+
+.card-flip .card-front{
+    background: var(--color-oscuro);
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.card-flip .card-back{
+    background: var(--color-oscuro);
+    transform: perspective(1000px) rotateY(180deg);
+}
+
+.card-flip:hover .card-front{
+    transform: perspective(1000px) rotateY(180deg);
+}
+
+.card-flip:hover .card-back{
+    transform: perspective(1000px) rotateY(360deg);
 }
