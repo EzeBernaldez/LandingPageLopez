@@ -59,14 +59,14 @@ h2{
 }
 
 .carousel-item-h{
- max-height: calc(100vh - 84px) ;
+    max-height: calc(100vh - 84px) ;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon{
     opacity: 0;
 }
 
-#carouselPrincipal:hover .carousel-control-prev-icon, #carouselPrincipal:hover .carousel-control-next-icon{
+:is(#carouselRepuestos:hover, #carouselPrincipal:hover) .carousel-control-prev-icon, :is(#carouselPrincipal:hover, #carouselRepuestos:hover) .carousel-control-next-icon{
     opacity: 1;
 }
 
@@ -239,12 +239,14 @@ h2{
 }
 
 .card-flip .card-front{
-    background: var(--color-oscuro);
+    background: linear-gradient(#0001, #0003) var(--color-scroll);
     transform: perspective(1000px) rotateY(0deg);
 }
 
 .card-flip .card-back{
-    background: var(--color-oscuro);
+    background: linear-gradient(#0001, #0003) var(--color-scroll);
+    border: 1px solid var(--color-scroll);
+    border-radius: 5px;
     transform: perspective(1000px) rotateY(180deg);
 }
 
