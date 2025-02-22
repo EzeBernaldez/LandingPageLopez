@@ -8,7 +8,7 @@
 }
 
 ::-webkit-scrollbar {
-    width: 5px;               /* width of the entire scrollbar */
+    width: 8px;               /* width of the entire scrollbar */
   }
 
   ::-webkit-scrollbar-track {
@@ -16,7 +16,7 @@
   }
   
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-scroll);
+    background-color: var(--color-overlay);
     border-radius: 3px;       /* roundness of the scroll thumb */
   }
 
@@ -24,6 +24,11 @@ body{
     background-color: var(--color-body);
     font-family: sans-serif;
     padding-top: 82px;
+    height: 100%;
+}
+
+.bg-strong{
+    color: var(--color-oscuro)
 }
 
 .bg-body{
@@ -34,12 +39,20 @@ body{
     background-color: var(--color-services);
 }
 
-.bg-about-us{
+.bg-gradiente{
     background: linear-gradient(to top,var(--color-services) 0%, var(--color-about-us) 20%);
 }
 
+.bg-about-us{
+    background-color: var(--color-about-us);
+}
+
+.bg-repuestos{
+    background-color: var(--color-about-us);
+}
+
 .bg-oscuro{
-    color: var(--color-oscuro);
+    background: radial-gradient(transparent, #0009) , var(--color-oscuro);
 }
 
 .bg-overlay{
@@ -63,6 +76,13 @@ h2{
     box-shadow: none !important; 
 }
 
+
+/*------------------------------------Estilos de li----------------------------*/
+
+li{
+    list-style: none;
+    filter:drop-shadow(0 0 5px var(--color-body))
+}
 
 /*<-------------------------------------- CARROUSEL PRINCIPAL ----------------------------------------->*/
 
@@ -540,7 +560,7 @@ h2{
 .card-flip{
     position: relative;
     margin: auto;
-    max-width: 40vw;
+    max-width: 80vw;
     height: 300px;
 }
 
@@ -548,24 +568,22 @@ h2{
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     backface-visibility: hidden;
-    transition: 1s ;
+    transition: 1s;
 }
 
-.card-front img{
-    object-fit: contain
-}
 
 .card-flip .card-front{
-    background: linear-gradient(#0001, #0003) var(--color-scroll);
+    background: linear-gradient(#0001, #0001) var(--color-scroll);
     transform: perspective(1000px) rotateY(0deg);
 }
 
 .card-flip .card-back{
-    background: linear-gradient(#0001, #0003) var(--color-scroll);
+    background: linear-gradient(#0001, #0001) var(--color-scroll);
     border: 1px solid var(--color-scroll);
     border-radius: 5px;
     transform: perspective(1000px) rotateY(180deg);
@@ -577,4 +595,79 @@ h2{
 
 .card-flip:hover .card-back{
     transform: perspective(1000px) rotateY(360deg);
+}
+
+.linea__separadora__repuestos{
+    background-color: #0007;
+    width: 80%;
+    margin: auto;
+    height: 0.5rem;
+}
+
+
+/*------------------------------------------------Slider------------------------------------------------------*/
+
+.slider{
+    width: 90vw;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+    padding-bottom: 20%;
+}
+
+
+.slider .slider-track{
+    display: flex;
+    animation: scroll 25s linear infinite;
+    width: calc(200px * 16);
+    -webkit-animation: scroll 25s linear infinite;
+    animation-fill-mode: both;
+}
+
+.slider .slide{
+    width: 200px;
+    padding: 0 10px;
+    margin: auto;
+}
+
+.slider .slide img{
+    width: 100%;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-200px * 8));
+    }
+}
+
+.reverse{
+    animation: scroll-reverse 25s linear infinite;
+    -webkit-animation: scroll-reverse 25s linear infinite;
+    display: flex;
+    width: calc(200px * 16);
+    animation-fill-mode: both;
+}
+
+@keyframes scroll-reverse {
+    0%{
+        transform: translateX(calc(-200px * 8));
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+
+
+/*-------------------------------------footer----------------------------------*/
+
+.footer-brand{
+    width: 11rem;
+}
+
+.shadow{
+    filter: drop-shadow(0 0 5px var(--color-body))
 }
